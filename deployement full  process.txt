@@ -1,0 +1,77 @@
+Deployment Process:
+
+login into server using putty control pannel:
+ssh root@74.208.28.169
+enter : root
+password: 7cF&b5%*9d
+
+files transfer:
+1. scp -r C:\Userssrinivas\OneDrive\Desktop\EMP\Empconcor-bdt3\backend root@74.208.28.169:/root/nodeapp/ (directory)
+   scp C:\Users\srinivas\OneDrive\Desktop\EMP\Empconcor-bdt3\backend\package.json root@74.208.28.169:/root/nodeapp/ (only one file)
+2. git clone url(mostly use)
+3. File zilla
+4. WINscp
+
+small changes in files:
+1. nano filepath adding database connection url changing and other changes.
+
+database cofigration:
+1. add files to database directory in the server
+2. login into mysql and create a database on mysql using (mysql --host=localhost --user=root --password=Beedata@2024)
+3. and it dump to the mysql database using (mysql -u <username> -p <db_name> < data-dump.sql)
+
+map IP to URL:
+1. Add DNS path
+
+NGINX CONFIGRATION:
+1. add a file app in sites-availeble folder using (sudo nano /etc/nginx/sites-available/app1)
+2. and add some code in the app1 file:
+  server {
+    listen 80;
+    server_name form-maker.bedatatech.com;
+
+    location / {
+        proxy_pass http://localhost:3001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    access_log /var/log/nginx/form-maker.access.log;
+    error_log /var/log/nginx/form-maker.error.log;
+ }
+
+3. app file transofer into sites-enabled folder using (sudo ln -s /etc/nginx/sites-available/app1 /etc/nginx/sites-enabled/)
+4. sudo nginx -t
+5. reload nginx ( sudo systemctl reload nginx ) 
+6. add logs (tail -f /var/log/nginx/access.log /var/log/nginx/error.log)
+
+App Running
+1. Install pm2 globally (if not already installed) [ npm install -g pm2 ]
+2. Navigate to your React application directory using [ cd /path/to/your/react/app ]
+3. Start your React application with pm2 [ pm2 start index.js --name app-name <or> pm2 start npm --name "react-app" -- start ]
+4. to check status [ pm2 status ]
+5. to stop pm2 [ pm2 stop react-app ]
+6 to delete stopped pm2 [ pm2 delete 1 ]
+
+
+
+
+to check files:
+ls
+
+file changes and add a new file :
+nano filename or filepath
+after finishing file changing (ctrl + o and enter) to save the file 
+and
+exit:
+ (ctrl + x) to exit
+
+delete folder :
+rm -rf  foldername
+delete file:
+rm   filename
+nano  :
+nano filename
+file changes all like -> adding removing for all

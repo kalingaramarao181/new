@@ -1,0 +1,129 @@
+scp -> Securely Transfor Files
+
+To transfor files from local to the server using bellow command:
+scp LocalFilePath\file root@server_ip_address:/root/serverpath
+Example:
+scp C:\Users\srinivas\OneDrive\Desktop\EMP\Empconcor-bdt3\backend\package.json root@74.208.28.169:/root/nodeapp/
+
+To transfor directries from local to the server using bellow command:
+scp -r LocalFilePath\folder root@server_ip_address:/root/serverpath (-r indicates 'recursive')
+Example:
+scp -r C:\Userssrinivas\OneDrive\Desktop\EMP\Empconcor-bdt3\backend root@74.208.28.169:/root/nodeapp/
+
+If we cunnect the server use bellow command
+ssh root@sever_ip_address
+ssh root@74.208.28.169
+
+To kill the presend running server port we can use below command:
+kill -9 $(lsof -t -i:5000)
+
+password: 7cF&b5%*9d
+
+
+dbs12715193.sql
+
+enter into Mysql
+mysql --host=localhost --user=myname --password=password
+mysql --host=localhost --user=root --password=Beedata@2024
+
+to transfor data local to sql database
+mysql -u <username> -p <db_name> < data-dump.sql
+
+
+
+
+
+
+
+
+
+
+
+Providing Sai Teja:
+mysql --host=localhost --user=myname --password=password
+
+show tables;
+show databases;
+
+CREATE DATABASE <db_name>;
+
+mysql -u <username> -p <db_name> < data-dump.sql
+
+
+select count(*)
+ from <t>;
+
+select * from <table>
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';
+
+flush privileges;
+
+https://www.ionos.com/security/free-ssl
+
+rm -r nodeapp
+
+https://letsencrypt.org/getting-started/
+rvy-xgrr-ktx
+
+showing databases:
+show databases;
+
+to create database:
+CREATE DATABASE <db_name>;
+
+to connect database
+use databse_name;
+
+
+https://letsencrypt.org/getting-started/
+
+https://www.ionos.com/security/free-ssl
+
+to dumb database into mysql(if '<' from local to mysql, '>' from mysql to local):
+mysql -u <username> -p <db_name> < data-dump.sql
+password: Beedata@2024
+
+http://74.208.28.169:5000/user
+
+to remove Directory:
+rm -r nodeapp
+
+
+1.Install pm2 globally (if not already installed):
+npm install -g pm2
+
+2.Navigate to your React application directory:
+cd /path/to/your/react/app
+
+3.Start your React application with pm2:
+pm2 start npm --name "react-app" -- start
+pm2 start --name "react-app" --env PORT=4000 npm -- start
+Replace "react-app" with your de sired process name.
+
+4.Save the pm2 process list:
+pm2 save
+This command saves the current list of pm2 processes so they will automatically restart if the server reboots.
+
+5.View pm2 process status:
+pm2 status
+
+6.to stop app:
+pm2 stop react-app
+
+7.You can view the logs of your pm2 processes to see if there are any errors or issues. Run the following command to view the logs:
+pm2 logs
+
+8. If all else fails, you can try restarting the process using pm2 restart:
+pm2 restart react-app
+
+
+
+to change port for react:
+npm start -- --port 4000
+
+
+
+
+
+   Donating to EFF:                    https://eff.org/donate-le
